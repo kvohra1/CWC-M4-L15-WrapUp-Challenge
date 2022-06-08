@@ -9,12 +9,24 @@ import SwiftUI
 
 struct MyLibraryHomeView: View {
     
-    @ObservedObject var model = LibraryModel()
+    @EnvironmentObject var model:LibraryModel
     
     var body: some View {
         
-        Text("Hello, world!")
-            .padding()
+        NavigationView
+        {
+            GeometryReader
+            {
+                geo in
+                ScrollView
+                {
+                    LazyVStack
+                    {
+                        
+                    }
+                }
+            }
+        }
     }
 }
 
