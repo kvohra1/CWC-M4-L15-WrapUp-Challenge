@@ -8,19 +8,29 @@
 
 /* Begin PBXBuildFile section */
 		CB8B23B8284FF89600AB3E42 /* MyLibraryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8B23B7284FF89600AB3E42 /* MyLibraryApp.swift */; };
-		CB8B23BA284FF89600AB3E42 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8B23B9284FF89600AB3E42 /* ContentView.swift */; };
+		CB8B23BA284FF89600AB3E42 /* MyLibraryHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8B23B9284FF89600AB3E42 /* MyLibraryHomeView.swift */; };
 		CB8B23BC284FF89700AB3E42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB8B23BB284FF89700AB3E42 /* Assets.xcassets */; };
 		CB8B23BF284FF89700AB3E42 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB8B23BE284FF89700AB3E42 /* Preview Assets.xcassets */; };
 		CB8B23CD284FFAB700AB3E42 /* Data.json in Resources */ = {isa = PBXBuildFile; fileRef = CB8B23CC284FFAB700AB3E42 /* Data.json */; };
+		CB8B23CF284FFEB400AB3E42 /* DataWords.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8B23CE284FFEB400AB3E42 /* DataWords.swift */; };
+		CB8B23D1285000A400AB3E42 /* LibraryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8B23D0285000A400AB3E42 /* LibraryModel.swift */; };
+		CB8B23D3285016E900AB3E42 /* BookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8B23D2285016E900AB3E42 /* BookView.swift */; };
+		CB8B23D52850171E00AB3E42 /* BookDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8B23D42850171E00AB3E42 /* BookDetailView.swift */; };
+		CB8B23D72850197E00AB3E42 /* DataServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8B23D62850197E00AB3E42 /* DataServices.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CB8B23B4284FF89600AB3E42 /* MyLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyLibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB8B23B7284FF89600AB3E42 /* MyLibraryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLibraryApp.swift; sourceTree = "<group>"; };
-		CB8B23B9284FF89600AB3E42 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CB8B23B9284FF89600AB3E42 /* MyLibraryHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLibraryHomeView.swift; sourceTree = "<group>"; };
 		CB8B23BB284FF89700AB3E42 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB8B23BE284FF89700AB3E42 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CB8B23CC284FFAB700AB3E42 /* Data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Data.json; sourceTree = "<group>"; };
+		CB8B23CE284FFEB400AB3E42 /* DataWords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataWords.swift; sourceTree = "<group>"; };
+		CB8B23D0285000A400AB3E42 /* LibraryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryModel.swift; sourceTree = "<group>"; };
+		CB8B23D2285016E900AB3E42 /* BookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookView.swift; sourceTree = "<group>"; };
+		CB8B23D42850171E00AB3E42 /* BookDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailView.swift; sourceTree = "<group>"; };
+		CB8B23D62850197E00AB3E42 /* DataServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServices.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +67,7 @@
 				CB8B23C5284FF9A100AB3E42 /* Views */,
 				CB8B23C6284FF9AA00AB3E42 /* ViewModels */,
 				CB8B23C7284FF9B300AB3E42 /* Models */,
-				CB8B23C9284FF9D600AB3E42 /* Data Services */,
+				CB8B23C9284FF9D600AB3E42 /* Services */,
 				CB8B23C8284FF9CF00AB3E42 /* Data */,
 				CB8B23BB284FF89700AB3E42 /* Assets.xcassets */,
 				CB8B23BD284FF89700AB3E42 /* Preview Content */,
@@ -76,7 +86,9 @@
 		CB8B23C5284FF9A100AB3E42 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CB8B23B9284FF89600AB3E42 /* ContentView.swift */,
+				CB8B23B9284FF89600AB3E42 /* MyLibraryHomeView.swift */,
+				CB8B23D2285016E900AB3E42 /* BookView.swift */,
+				CB8B23D42850171E00AB3E42 /* BookDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -84,6 +96,7 @@
 		CB8B23C6284FF9AA00AB3E42 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				CB8B23D0285000A400AB3E42 /* LibraryModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -91,6 +104,7 @@
 		CB8B23C7284FF9B300AB3E42 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				CB8B23CE284FFEB400AB3E42 /* DataWords.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -103,11 +117,12 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
-		CB8B23C9284FF9D600AB3E42 /* Data Services */ = {
+		CB8B23C9284FF9D600AB3E42 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				CB8B23D62850197E00AB3E42 /* DataServices.swift */,
 			);
-			path = "Data Services";
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,8 +196,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB8B23BA284FF89600AB3E42 /* ContentView.swift in Sources */,
+				CB8B23BA284FF89600AB3E42 /* MyLibraryHomeView.swift in Sources */,
+				CB8B23D72850197E00AB3E42 /* DataServices.swift in Sources */,
+				CB8B23CF284FFEB400AB3E42 /* DataWords.swift in Sources */,
 				CB8B23B8284FF89600AB3E42 /* MyLibraryApp.swift in Sources */,
+				CB8B23D1285000A400AB3E42 /* LibraryModel.swift in Sources */,
+				CB8B23D52850171E00AB3E42 /* BookDetailView.swift in Sources */,
+				CB8B23D3285016E900AB3E42 /* BookView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
