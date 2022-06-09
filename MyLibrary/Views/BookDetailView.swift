@@ -15,6 +15,6 @@ struct BookDetailView: View {
 
 struct BookDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        BookDetailView()
+        BookDetailView().environmentObject(LibraryModel())
     }
 }
