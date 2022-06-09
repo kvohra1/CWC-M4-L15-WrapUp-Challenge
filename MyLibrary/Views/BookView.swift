@@ -8,13 +8,45 @@
 import SwiftUI
 
 struct BookView: View {
+    var dataWords:DataWords
+    
+   
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        GeometryReader{geo in
+            ScrollView
+            {
+                LazyVStack(alignment: .center)
+                {
+                    //MARK: Book Title
+                    Text("Read Now!")
+                        .font(.title)
+                    
+                    Divider()
+                    
+                    //MARK: Book Image
+                    Image("cover\(String(dataWords.id))")
+                        .resizable()
+                        .frame(width: geo.size.width-150, height: geo.size.height - 400, alignment: .center)
+                    
+                }
+                
+                
+                
+                
+                
+                
+            }.navigationBarTitle(dataWords.title)
+        }
+        
+        
     }
 }
 
 struct BookView_Previews: PreviewProvider {
     static var previews: some View {
-        BookView().environmentObject(LibraryModel())
+        let model = LibraryModel()
+        
+        BookView(dataWords: model.dataWords[0])
     }
 }

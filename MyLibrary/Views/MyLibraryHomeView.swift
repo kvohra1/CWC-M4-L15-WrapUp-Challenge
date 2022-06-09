@@ -33,14 +33,11 @@ struct MyLibraryHomeView: View {
                                     Text(model.dataWords[index].title)
                                     Text(model.dataWords[index].author)
                                     NavigationLink {
-                                        Text("Book View")
+                                        BookView(dataWords: model.dataWords[index])
                                     } label: {
                                         Image("cover\(String(index+1))")
                                             .resizable()
                                     }
-
-                                    
-                                        
                                     
                                 }.padding()
                             }
@@ -48,9 +45,6 @@ struct MyLibraryHomeView: View {
                                 .cornerRadius(15)
                                 .padding(.bottom, 10)
                                 .shadow(color: Color(.sRGB, red: 0, green: 0, blue: 0, opacity: 0.2), radius: 10, x: -5, y: 5)
-                                
-                                
-                            
                         }
                     }
                     
