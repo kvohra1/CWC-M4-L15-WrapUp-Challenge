@@ -11,6 +11,7 @@ class LibraryModel:ObservableObject
 {
     @Published var dataWords = [DataWords]()
     
+    
     init ()
     {
         self.dataWords = DataServices.getLocalData()
