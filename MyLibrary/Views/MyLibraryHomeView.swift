@@ -20,9 +20,9 @@ struct MyLibraryHomeView: View {
                 {
                     LazyVStack
                     {
-                        ForEach(0..<model.dataWords.count)
+                        ForEach(model.dataWords)
                         {
-                            index in
+                            book in
                             
                             ZStack
                             {
@@ -30,24 +30,23 @@ struct MyLibraryHomeView: View {
                                     .foregroundColor(.white)
                                 VStack
                                 {
-                                    Text(model.dataWords[index].title)
-                                    Text(model.dataWords[index].author)
+                                    Text(book.title)
+                                    Text(book.author)
                                     NavigationLink {
-                                        BookView(dataWords: model.dataWords[index])
+                                        BookView(dataWords: book)
                                     } label: {
-                                        Image("cover\(String(index+1))")
+                                        Image("cover\(String(book.id))")
                                             .resizable()
                                     }
                                     
                                 }.padding()
                             }
                             .frame(width: geo.size.width-40, height: geo.size.height - 115, alignment: .center)
-                                .cornerRadius(15)
-                                .padding(.bottom, 10)
-                                .shadow(color: Color(.sRGB, red: 0, green: 0, blue: 0, opacity: 0.2), radius: 10, x: -5, y: 5)
+                            .cornerRadius(15)
+                            .padding(.bottom, 10)
+                            .shadow(color: Color(.sRGB, red: 0, green: 0, blue: 0, opacity: 0.2), radius: 10, x: -5, y: 5)
                         }
                     }
-                    
                     
                 }.navigationBarTitle("My Library")
             }
