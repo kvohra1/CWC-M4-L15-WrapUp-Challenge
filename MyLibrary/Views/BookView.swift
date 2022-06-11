@@ -37,11 +37,15 @@ struct BookView: View {
                         Divider()
                         
                         //MARK: Book Image
+                        NavigationLink {
+                            BookDetailView(bookDetail: dataWords)
+                        } label: {
                             Image("cover\(String(dataWords.id))")
                                 .resizable()
                                 .frame(width: geo.size.width/2, height: geo.size.height/2, alignment: .center)
-                       
-                        
+                        }
+
+                    
                         
                         //MARK: Toggle - Mark for later
                         

@@ -8,13 +8,39 @@
 import SwiftUI
 
 struct BookDetailView: View {
+    
+    var bookDetail:DataWords
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        GeometryReader
+        {
+            geo in
+            TabView
+            {
+                ForEach(0..<bookDetail.content.count)
+                {
+                    index in
+                    VStack {
+                        Text(bookDetail.content[index])
+                        
+                        Spacer()
+                        
+                        Text((String(index + 1)))
+                    }
+                }
+            }.tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+        }
+            
     }
 }
 
 struct BookDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        BookDetailView().environmentObject(LibraryModel())
+        let model = LibraryModel()
+        
+        BookDetailView(bookDetail: model.dataWords[0])
+        
+        //BookDetailView(bookDetail: "Test1", bookIndex: 1, bookTitle: "Book Title Test")
     }
 }
