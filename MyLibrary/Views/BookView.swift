@@ -17,66 +17,73 @@ struct BookView: View {
     var body: some View {
         
             GeometryReader
-            { geo in
-                ScrollView
-                {
-                    LazyVStack(alignment: .center)
-                    {
-                        //MARK: Book Title
-                        Text(dataWords.title)
-                            .font(.largeTitle)
-                            .bold()
-                            .padding(.trailing, 100)
-                        
-                        Divider()
-                        
-                        //MARK: Read Me Text
-                        Text("Read Now!")
-                            .font(.title)
-                        
-                        Divider()
-                        
-                        //MARK: Book Image
-                        NavigationLink {
-                            BookDetailView(bookDetail: dataWords)
-                        } label: {
-                            Image("cover\(String(dataWords.id))")
-                                .resizable()
-                                .frame(width: geo.size.width/2, height: geo.size.height/2, alignment: .center)
-                        }
+                    { geo in
+                        ScrollView
+                        {
+                            
+                            LazyVStack(alignment: .center, spacing: 0)
+                            {
+                                //MARK: Book Title
+                                Text(dataWords.title)
+                                    .font(.largeTitle)
+                                    .bold()
+                                    .padding(.trailing, 100)
+                                
+                                Divider()
+                                
+                                //MARK: Read Me Text
+                                Text("Read Now!")
+                                    .font(.title)
+                                
+                                Divider()
+                                
+                                //MARK: Book Image
+                                
+                               
+                                    NavigationLink {
+                                        BookDetailView(bookDetail: dataWords)
+                                    } label: {
+                                        Image("cover\(String(dataWords.id))")
+                                            .resizable()
+                                            .frame(width: geo.size.width/2, height: geo.size.height/2, alignment: .center)
+                                }
+                               
 
-                    
+                                //MARK: Toggle - Mark for later
+                                
+                                Text("Mark for Later!")
+                                    .bold()
+                                
+                                Toggle(isOn: $isStarOn)
+                                {
+                                    Image(systemName: "star")
+                                        .foregroundColor(.yellow)
+                                }
+                                
+                                //MARK: Rating
+                                Text ("Rate \(dataWords.title)")
+                                    .bold()
+                                Picker("Tap Me", selection: $selectedIndex)
+                                {
+                                    Text("1").tag(1)
+                                    Text("2").tag(2)
+                                    Text("3").tag(3)
+                                    Text("4").tag(4)
+                                    Text("5").tag(5)
+                                }.pickerStyle(.segmented)
+                                
+                                Text("You have selected \(selectedIndex)")
+                                
+                                
+                            }.toggleStyle(.button)
+                               
+                            
+                        } //.navigationBarTitle("My Library")
                         
-                        //MARK: Toggle - Mark for later
                         
-                        Text("Mark for Later!")
-                            .bold()
-                        
-                        Toggle(isOn: $isStarOn)
-                        {
-                            Image(systemName: "star")
-                                .foregroundColor(.yellow)
-                        }
-                        
-                        //MARK: Rating
-                        Text ("Rate \(dataWords.title)")
-                            .bold()
-                        Picker("Tap Me", selection: $selectedIndex)
-                        {
-                            Text("1").tag(1)
-                            Text("2").tag(2)
-                            Text("3").tag(3)
-                            Text("4").tag(4)
-                            Text("5").tag(5)
-                        }.pickerStyle(.segmented)
-                        
-                        Text("You have selected \(selectedIndex)")
-                        
-                        
-                    }.toggleStyle(.button)
-                }
-                
-            }
+                    }
+        
+        
        
     }
 }

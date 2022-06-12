@@ -18,7 +18,7 @@ struct MyLibraryHomeView: View {
             GeometryReader {geo in
                 ScrollView
                 {
-                    LazyVStack
+                    LazyVStack()
                     {
                         ForEach(model.dataWords)
                         {
@@ -28,9 +28,13 @@ struct MyLibraryHomeView: View {
                             {
                                 Rectangle()
                                     .foregroundColor(.white)
-                                VStack
+                                
+                                VStack(alignment: .leading)
                                 {
                                     Text(book.title)
+                                        .font(.title)
+                                        .bold()
+                
                                     Text(book.author)
                                     NavigationLink {
                                         BookView(dataWords: book)
@@ -40,16 +44,21 @@ struct MyLibraryHomeView: View {
                                     }
                                     
                                 }.padding()
+                                    //.navigationBarTitle("My Library")
                             }
                             .frame(width: geo.size.width-40, height: geo.size.height - 115, alignment: .center)
                             .cornerRadius(15)
-                            .padding(.bottom, 10)
-                            .shadow(color: Color(.sRGB, red: 0, green: 0, blue: 0, opacity: 0.2), radius: 10, x: -5, y: 5)
-                        }
+                            .padding(.bottom, 15)
+                            .shadow(color: Color(.sRGB, red: 0, green: 0, blue: 0, opacity: 0.2), radius: 5, x: -3, y: 3)
+                            //.navigationBarTitle("My Library")
+                            
+                        }//.navigationBarTitle("My Library")
                     }
                     
                 }.navigationBarTitle("My Library")
-            }
+                    .padding()
+            }//.navigationBarTitle("My Library")
+            
         }
         
     }

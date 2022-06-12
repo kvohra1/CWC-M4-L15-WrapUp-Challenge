@@ -12,7 +12,26 @@ struct BookDetailView: View {
     var bookDetail:DataWords
     
     var body: some View {
-        
+        /*NavigationView
+        {
+            TabView
+            {
+                
+                    ForEach(0..<bookDetail.content.count)
+                    {
+                        index in
+                        VStack {
+                            Text(bookDetail.content[index])
+                            
+                            Spacer()
+                            
+                            Text((String(index + 1)))
+                        }
+                    }
+                }.tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+                    .navigationBarTitle(bookDetail.title)
+            }
+        }*/
         GeometryReader
         {
             geo in
@@ -30,6 +49,9 @@ struct BookDetailView: View {
                     }
                 }
             }.tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+                
+                
+                
         }
             
     }
