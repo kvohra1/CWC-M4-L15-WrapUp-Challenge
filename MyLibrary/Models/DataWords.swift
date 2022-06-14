@@ -17,3 +17,5 @@ struct DataWords:Identifiable, Decodable
     var id:Int
     var content:[String]
 }
+
+

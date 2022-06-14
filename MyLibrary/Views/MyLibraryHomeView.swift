@@ -55,9 +55,10 @@ struct MyLibraryHomeView: View {
                         }//.navigationBarTitle("My Library")
                     }
                     
-                }.navigationBarTitle("My Library")
-                    .padding()
-            }//.navigationBarTitle("My Library")
+                }//.navigationBarTitle("My Library")
+                  //  .padding()
+            }.navigationBarTitle("My Library")
+            .padding()
             
         }
         
