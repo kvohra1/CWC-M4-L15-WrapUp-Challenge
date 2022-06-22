@@ -15,11 +15,12 @@ struct MyLibraryHomeView: View {
         
         NavigationView
         {
-            GeometryReader {geo in
+            //GeometryReader {geo in
                 ScrollView
                 {
                     LazyVStack()
                     {
+                        
                         ForEach(model.dataWords)
                         {
                             book in
@@ -41,12 +42,14 @@ struct MyLibraryHomeView: View {
                                     } label: {
                                         Image("cover\(String(book.id))")
                                             .resizable()
+                                            .aspectRatio(contentMode: .fit
+                                            )
                                     }
                                     
                                 }.padding()
                                     //.navigationBarTitle("My Library")
                             }
-                            .frame(width: geo.size.width-40, height: geo.size.height - 115, alignment: .center)
+                            .frame(width: 300, height: 400, alignment: .center)
                             .cornerRadius(15)
                             .padding(.bottom, 15)
                             .shadow(color: Color(.sRGB, red: 0, green: 0, blue: 0, opacity: 0.2), radius: 5, x: -3, y: 3)
@@ -55,10 +58,10 @@ struct MyLibraryHomeView: View {
                         }//.navigationBarTitle("My Library")
                     }
                     
-                }//.navigationBarTitle("My Library")
-                  //  .padding()
-            }.navigationBarTitle("My Library")
-            .padding()
+                }.navigationTitle("My Library")
+                  .padding()
+            //}.navigationBarTitle("My Library")
+           
             
         }
         

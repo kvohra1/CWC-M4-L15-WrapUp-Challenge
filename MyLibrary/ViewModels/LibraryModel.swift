@@ -16,4 +16,13 @@ class LibraryModel:ObservableObject
     {
         self.dataWords = DataServices.getLocalData()
     }
+    
+    //Create a method to toggle between favoriate and not favoriate
+    func updateFavorite(forId:Int)
+    {
+        if let index = dataWords.firstIndex(where: { $0.id == forId})
+        {
+            dataWords[index].isFavourite.toggle()
+        }
+    }
 }
