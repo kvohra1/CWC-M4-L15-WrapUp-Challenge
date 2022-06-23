@@ -10,29 +10,36 @@ import SwiftUI
 struct BookDetailView: View {
     
     var bookDetail:DataWords
+    @EnvironmentObject var model:LibraryModel
+    @State var page = 0
     
     var body: some View {
         
         GeometryReader
         {
             geo in
-            TabView
-            {
-                ForEach(0..<bookDetail.content.count)
+            TabView(selection: $page, content: {
+                
+                ForEach(bookDetail.content.indices)
                 {
                     index in
                     VStack {
-                        Text(bookDetail.content[index])
+                        Text(bookDetail.content[page])
+                            .padding([.leading, .trailing], 20)
                         
                         Spacer()
                         
-                        Text((String(index + 1)))
-                    }
+                        Text((String(page + 1)))
+                    }.tag(index)
                 }
-            }.tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-                
-                
-                
+            }).tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+                .onDisappear {
+                    model.updatePage(forId: bookDetail.id, page: page)
+                }
+                .onAppear {
+                    page = bookDetail.currentPage
+                                        
+                }
         }
             
     }

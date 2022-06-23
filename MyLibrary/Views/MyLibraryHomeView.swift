@@ -13,56 +13,70 @@ struct MyLibraryHomeView: View {
     
     var body: some View {
         
-        NavigationView
-        {
-            //GeometryReader {geo in
-                ScrollView
-                {
-                    LazyVStack()
+        GeometryReader {geo in
+            NavigationView
+            {
+                //GeometryReader {geo in
+                    ScrollView
                     {
-                        
-                        ForEach(model.dataWords)
+                        LazyVStack()
                         {
-                            book in
                             
-                            ZStack
+                            ForEach(model.dataWords)
                             {
-                                Rectangle()
-                                    .foregroundColor(.white)
+                                book in
                                 
-                                VStack(alignment: .leading)
+                                ZStack
                                 {
-                                    Text(book.title)
-                                        .font(.title)
-                                        .bold()
-                
-                                    Text(book.author)
-                                    NavigationLink {
-                                        BookView(dataWords: book)
-                                    } label: {
-                                        Image("cover\(String(book.id))")
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fit
-                                            )
-                                    }
+                                    Rectangle()
+                                        .foregroundColor(.white)
                                     
-                                }.padding()
+                                    VStack(alignment: .leading)
+                                    {
+                                        
+                                        HStack {
+                                            Text(book.title)
+                                                .font(.title)
+                                                .bold()
+                                            
+                                            if book.isFavourite
+                                            {
+                                                Image(systemName: "star.fill")
+                                                    .foregroundColor(.yellow)
+                                                    .padding(.leading, 70)
+                                            }
+                                            
+                                        }
+                                        
+                                        Text(book.author)
+                                            .italic()
+                                        
+                                        NavigationLink {
+                                            BookView(dataWords: book)
+                                        } label: {
+                                            Image("cover\(String(book.id))")
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fit)
+                                            
+                                        }
+                                        
+                                    }.padding()
                                     //.navigationBarTitle("My Library")
-                            }
-                            .frame(width: 300, height: 400, alignment: .center)
-                            .cornerRadius(15)
-                            .padding(.bottom, 15)
-                            .shadow(color: Color(.sRGB, red: 0, green: 0, blue: 0, opacity: 0.2), radius: 5, x: -3, y: 3)
-                            //.navigationBarTitle("My Library")
-                            
-                        }//.navigationBarTitle("My Library")
-                    }
-                    
-                }.navigationTitle("My Library")
-                  .padding()
-            //}.navigationBarTitle("My Library")
-           
-            
+                                }
+                                .frame(width: geo.size.width - 40, height: geo.size.height - 180, alignment: .center)
+                                .cornerRadius(15)
+                                .padding(.bottom, 15)
+                                .shadow(color: Color(.sRGB, red: 0, green: 0, blue: 0, opacity: 0.2), radius: 5, x: -3, y: 3)
+                                //.navigationBarTitle("My Library")
+                                
+                            }//.navigationBarTitle("My Library")
+                        }
+                        
+                    }.navigationTitle("My Library")
+                        .padding()
+               // }
+                
+        }
         }
         
     }
