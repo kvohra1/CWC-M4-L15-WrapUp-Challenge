@@ -83,7 +83,7 @@ struct BookView_Previews: PreviewProvider {
         let model = LibraryModel()
         BookView(dataWords: model.dataWords[0])
         
-        //Option 2
+        //Option 2 - Getting an error - Please see screen shot
         //BookView(dataWords: DataWords()).environmentObject(LibraryModel())
     }
 }
