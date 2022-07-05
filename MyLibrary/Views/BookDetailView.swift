@@ -15,9 +15,8 @@ struct BookDetailView: View {
     
     var body: some View {
         
-        GeometryReader
-        {
-            geo in
+        
+            
             TabView(selection: $page, content: {
                 
                 ForEach(bookDetail.content.indices)
@@ -36,11 +35,17 @@ struct BookDetailView: View {
                 .onDisappear {
                     model.updatePage(forId: bookDetail.id, page: page)
                 }
-                .onAppear {
+               /* .onAppear {
                     page = bookDetail.currentPage
                                         
+                }*/
+        
+                .onAppear {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                        page = bookDetail.currentPage
+                    }
                 }
-        }
+      
             
     }
 }
