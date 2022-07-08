@@ -15,6 +15,7 @@ struct DataWords:Identifiable, Decodable
     var currentPage:Int
     var rating:Int
     var id:Int
+    var video:String
     var content:[String]
 }
 
