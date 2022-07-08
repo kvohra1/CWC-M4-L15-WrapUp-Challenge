@@ -17,6 +17,7 @@ struct BookDetailView: View {
     var body: some View {
         
         let videoHostURL = Constants.videoHostURL
+        let videoFileName = bookDetail.video
         
         //let url = URL(string: Constants.videoHostURL + bookDetail.video)
           
@@ -27,7 +28,7 @@ struct BookDetailView: View {
                 {
                     index in
                     
-                    let videoFileName = bookDetail.video
+                    
                     
                     VStack {
                         
