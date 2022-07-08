@@ -16,15 +16,26 @@ struct BookDetailView: View {
     
     var body: some View {
         
+        let videoHostURL = Constants.videoHostURL
         
+        //let url = URL(string: Constants.videoHostURL + bookDetail.video)
+          
             
             TabView(selection: $page, content: {
                 
                 ForEach(bookDetail.content.indices)
                 {
                     index in
+                    
+                    let videoFileName = bookDetail.video
+                    
                     VStack {
-                        Text(bookDetail.content[page])
+                        
+                        /*if url != nil
+                        {
+                             VideoPlayer(player: AVPlayer(url: url!))
+                        }*/
+                       Text(bookDetail.content[page])
                             .padding([.leading, .trailing], 20)
                         
                         Spacer()
