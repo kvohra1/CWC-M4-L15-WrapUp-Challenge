@@ -9,5 +9,5 @@ import Foundation
 
 struct Constants
 {
-    static var videoHostURL = "https://github.com/kvohra1/CWC-M5-L6-LessonDetaiView-Challenge"
+    static var videoHostURL = "https://kvohra1.github.io/CWC-M5-L6-LessonDetaiView-Challenge/"
 }

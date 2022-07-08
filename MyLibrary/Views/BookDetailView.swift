@@ -16,34 +16,42 @@ struct BookDetailView: View {
     
     var body: some View {
         
-        let videoHostURL = Constants.videoHostURL
-        let videoFileName = bookDetail.video
+        //let videoHostURL = Constants.videoHostURL
+        //let videoFileName = bookDetail.video
+        //let id = bookDetail.id
         
-        //let url = URL(string: Constants.videoHostURL + bookDetail.video)
+        let url = URL(string: Constants.videoHostURL + bookDetail.video)
+        //let videoRatio: CGFloat = 1080 / 1920
           
             
             TabView(selection: $page, content: {
-                
-                ForEach(bookDetail.content.indices)
-                {
-                    index in
+                GeometryReader{
+                    geo in
                     
-                    
-                    
-                    VStack {
+                    ForEach(bookDetail.content.indices)
+                    {
+                        index in
                         
-                        /*if url != nil
+                        VStack
                         {
-                             VideoPlayer(player: AVPlayer(url: url!))
-                        }*/
-                       Text(bookDetail.content[page])
-                            .padding([.leading, .trailing], 20)
-                        
-                        Spacer()
-                        
-                        Text((String(page + 1)))
-                    }.tag(index)
+                            
+                            if url != nil
+                            {
+                                 VideoPlayer(player: AVPlayer(url: url!))
+                                    .frame(height: geo.size.height/3)
+                            }
+                           Text(bookDetail.content[page])
+                               // .padding([.leading, .trailing], 20)
+                            
+                            Spacer()
+                            
+                            Text((String(page + 1))).multilineTextAlignment(.center)
+                            
+                        }.tag(index)
+                            .padding()
+                    }
                 }
+                
             }).tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                 .onDisappear {
                     model.updatePage(forId: bookDetail.id, page: page)
