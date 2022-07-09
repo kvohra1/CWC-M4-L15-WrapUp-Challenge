@@ -21,7 +21,7 @@ struct BookDetailView: View {
         //let id = bookDetail.id
         
         let url = URL(string: Constants.videoHostURL + bookDetail.video)
-        //let videoRatio: CGFloat = 1080 / 1920
+        let videoRatio: CGFloat = 1080 / 1920
           
             
             TabView(selection: $page, content: {
@@ -38,7 +38,7 @@ struct BookDetailView: View {
                             if url != nil
                             {
                                  VideoPlayer(player: AVPlayer(url: url!))
-                                    .frame(height: geo.size.height/3)
+                                    .frame(height: geo.size.width * videoRatio)
                             }
                            Text(bookDetail.content[page])
                                // .padding([.leading, .trailing], 20)
